@@ -1,0 +1,122 @@
+[
+  {
+    "id": "emp-001",
+    "name": "Anna Berger",
+    "team": "Plattform",
+    "bundesland": "BW",
+    "workdays": ["MO", "TU", "WE", "TH", "FR"],
+    "fullTimeEntitlement": 30,
+    "hiredAt": "2019-03-01",
+    "carriedOver": 5
+  },
+  {
+    "id": "emp-002",
+    "name": "Bernd Kowalski",
+    "team": "Plattform",
+    "bundesland": "BY",
+    "workdays": ["MO", "TU", "WE", "TH"],
+    "fullTimeEntitlement": 30,
+    "hiredAt": "2021-09-01",
+    "carriedOver": 3
+  },
+  {
+    "id": "emp-003",
+    "name": "Chiara Lorenz",
+    "team": "Plattform",
+    "bundesland": "NW",
+    "workdays": ["MO", "TU", "WE"],
+    "fullTimeEntitlement": 28,
+    "hiredAt": "2023-05-15",
+    "carriedOver": 2
+  },
+  {
+    "id": "emp-004",
+    "name": "Dilan Yilmaz",
+    "team": "Plattform",
+    "bundesland": "BE",
+    "workdays": ["MO", "TU", "WE", "TH", "FR"],
+    "fullTimeEntitlement": 30,
+    "hiredAt": "2026-04-01",
+    "carriedOver": 0
+  },
+  {
+    "id": "emp-005",
+    "name": "Erik Sandberg",
+    "team": "Kundenportal",
+    "bundesland": "HH",
+    "workdays": ["MO", "TU", "WE", "TH", "FR"],
+    "fullTimeEntitlement": 30,
+    "hiredAt": "2018-01-15",
+    "carriedOver": 8
+  },
+  {
+    "id": "emp-006",
+    "name": "Frauke Meins",
+    "team": "Kundenportal",
+    "bundesland": "SN",
+    "workdays": ["TU", "WE", "TH", "FR"],
+    "fullTimeEntitlement": 30,
+    "hiredAt": "2022-02-01",
+    "carriedOver": 4
+  },
+  {
+    "id": "emp-007",
+    "name": "Gregor Halm",
+    "team": "Kundenportal",
+    "bundesland": "TH",
+    "workdays": ["MO", "WE", "FR"],
+    "fullTimeEntitlement": 26,
+    "hiredAt": "2020-11-01",
+    "carriedOver": 1.5
+  },
+  {
+    "id": "emp-008",
+    "name": "Hanna Voss",
+    "team": "Kundenportal",
+    "bundesland": "MV",
+    "workdays": ["MO", "TU", "WE", "TH", "FR"],
+    "fullTimeEntitlement": 32,
+    "hiredAt": "2017-06-01",
+    "carriedOver": 6
+  },
+  {
+    "id": "emp-009",
+    "name": "Ivan Petrov",
+    "team": "Datenintegration",
+    "bundesland": "HE",
+    "workdays": ["MO", "TU", "TH", "FR"],
+    "fullTimeEntitlement": 30,
+    "hiredAt": "2024-01-08",
+    "carriedOver": 2.5
+  },
+  {
+    "id": "emp-010",
+    "name": "Jana Reuter",
+    "team": "Datenintegration",
+    "bundesland": "RP",
+    "workdays": ["MO", "TU", "WE", "TH", "FR"],
+    "fullTimeEntitlement": 30,
+    "hiredAt": "2015-09-01",
+    "carriedOver": 10
+  },
+  {
+    "id": "emp-011",
+    "name": "Kilian Freitag",
+    "team": "Datenintegration",
+    "bundesland": "SL",
+    "workdays": ["TU", "TH"],
+    "fullTimeEntitlement": 30,
+    "hiredAt": "2023-10-01",
+    "carriedOver": 0
+  },
+  {
+    "id": "emp-012",
+    "name": "Lena Sikorski",
+    "team": "Datenintegration",
+    "bundesland": "ST",
+    "workdays": ["MO", "TU", "WE", "TH", "FR"],
+    "fullTimeEntitlement": 30,
+    "hiredAt": "2026-07-15",
+    "carriedOver": 0
+  }
+]

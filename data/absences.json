@@ -1,0 +1,107 @@
+[
+  {
+    "id": "req-0001",
+    "employeeId": "emp-001",
+    "from": "2026-02-09",
+    "to": "2026-02-13",
+    "status": "approved"
+  },
+  {
+    "id": "req-0002",
+    "employeeId": "emp-001",
+    "from": "2026-07-27",
+    "to": "2026-08-07",
+    "status": "approved"
+  },
+  {
+    "id": "req-0003",
+    "employeeId": "emp-002",
+    "from": "2026-05-18",
+    "to": "2026-05-22",
+    "status": "approved"
+  },
+  {
+    "id": "req-0004",
+    "employeeId": "emp-003",
+    "from": "2026-08-03",
+    "to": "2026-08-14",
+    "status": "approved"
+  },
+  {
+    "id": "req-0005",
+    "employeeId": "emp-005",
+    "from": "2026-03-16",
+    "to": "2026-03-20",
+    "status": "approved"
+  },
+  {
+    "id": "req-0006",
+    "employeeId": "emp-005",
+    "from": "2026-10-05",
+    "to": "2026-10-16",
+    "status": "approved"
+  },
+  {
+    "id": "req-0007",
+    "employeeId": "emp-006",
+    "from": "2026-06-02",
+    "to": "2026-06-05",
+    "status": "approved"
+  },
+  {
+    "id": "req-0008",
+    "employeeId": "emp-007",
+    "from": "2026-09-21",
+    "to": "2026-09-25",
+    "status": "approved"
+  },
+  {
+    "id": "req-0009",
+    "employeeId": "emp-008",
+    "from": "2026-04-13",
+    "to": "2026-04-24",
+    "status": "approved"
+  },
+  {
+    "id": "req-0010",
+    "employeeId": "emp-009",
+    "from": "2026-07-06",
+    "to": "2026-07-17",
+    "status": "approved"
+  },
+  {
+    "id": "req-0011",
+    "employeeId": "emp-010",
+    "from": "2026-05-11",
+    "to": "2026-05-15",
+    "status": "approved"
+  },
+  {
+    "id": "req-0012",
+    "employeeId": "emp-010",
+    "from": "2026-12-21",
+    "to": "2026-12-31",
+    "status": "approved"
+  },
+  {
+    "id": "req-0013",
+    "employeeId": "emp-011",
+    "from": "2026-09-01",
+    "to": "2026-09-10",
+    "status": "approved"
+  },
+  {
+    "id": "req-0014",
+    "employeeId": "emp-002",
+    "from": "2026-11-02",
+    "to": "2026-11-05",
+    "status": "pending"
+  },
+  {
+    "id": "req-0015",
+    "employeeId": "emp-006",
+    "from": "2026-12-28",
+    "to": "2026-12-30",
+    "status": "pending"
+  }
+]

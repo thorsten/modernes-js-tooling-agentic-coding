@@ -1,0 +1,310 @@
+/*
+ * Ein einziges Stylesheet fuer die gesamte Oberflaeche. Bewusst ohne Framework
+ * und ohne Webfont-Download: Im Schulungsraum soll nichts nachgeladen werden.
+ * Poppins wird genutzt, wenn es lokal installiert ist, sonst die Systemschrift.
+ */
+
+:root {
+  --plum: #1e194b;
+  --plum-deep: #15113a;
+  --panel: #241e5c;
+  --panel-soft: #2b2569;
+  --line: #37326e;
+  --text: #ffffff;
+  --muted: #b9b6d0;
+  --berry: #e6007e;
+  --blueberry: #008cff;
+  --radius: 12px;
+  --radius-sm: 8px;
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--plum);
+  color: var(--text);
+  font-family:
+    Poppins,
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* ----------------------------------------------------------- Kopfzeile */
+
+.app-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.app-title {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.app-subtitle {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.employee-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 240px;
+}
+
+/* ------------------------------------------------------------- Raster */
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+  align-items: start;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ------------------------------------------------------------- Karten */
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.card-title {
+  margin: 0 0 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--berry);
+}
+
+.card-empty {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ---------------------------------------------------------- Kennzahlen */
+
+.balance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.balance-cell {
+  background: var(--plum-deep);
+  padding: 0.9rem 1rem;
+}
+
+.balance-cell dt {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.balance-cell dd {
+  margin: 0.2rem 0 0;
+  font-size: 1.9rem;
+  font-weight: 600;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.balance-cell[data-emphasis="true"] dd {
+  color: var(--berry);
+}
+
+/* ------------------------------------------------------------ Formular */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+input[type="date"],
+select {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  background: var(--plum-deep);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-size: 0.95rem;
+}
+
+input[type="date"]:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--blueberry);
+  outline-offset: 2px;
+}
+
+button[type="submit"] {
+  margin-top: 0.25rem;
+  padding: 0.65rem 1.4rem;
+  background: var(--berry);
+  color: var(--text);
+  border: none;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    opacity 0.12s ease;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: progress;
+}
+
+.issues {
+  margin: 1.25rem 0 0;
+  padding: 0.85rem 1rem 0.85rem 2.1rem;
+  list-style: disc;
+  background: rgb(230 0 126 / 12%);
+  border: 1px solid rgb(230 0 126 / 45%);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.issues li + li {
+  margin-top: 0.35rem;
+}
+
+/* --------------------------------------------------------------- Liste */
+
+.leave-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.leave-table caption {
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--berry);
+  text-align: left;
+}
+
+.leave-table th {
+  padding: 0 0 0.6rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: left;
+}
+
+.leave-table td {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgb(55 50 110 / 55%);
+  font-variant-numeric: tabular-nums;
+}
+
+.leave-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.status {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  background: var(--panel-soft);
+  color: var(--muted);
+}
+
+.status[data-status="approved"] {
+  background: rgb(0 140 255 / 18%);
+  color: #7ac2ff;
+}
+
+.status[data-status="pending"] {
+  background: rgb(230 0 126 / 16%);
+  color: #ff86c4;
+}

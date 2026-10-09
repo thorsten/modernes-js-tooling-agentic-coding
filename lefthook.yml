@@ -1,0 +1,13 @@
+# Ein Hook, ein Script. Der Hook ruft genau das auf, was der Agent auch aufruft.
+pre-commit:
+  parallel: false
+  commands:
+    check-affected:
+      run: pnpm run check:affected
+      fail_text: "check:affected ist rot. pnpm check:affected lokal ausfuehren und die Ausgabe lesen."
+
+commit-msg:
+  commands:
+    commitlint:
+      run: pnpm exec commitlint --edit {1}
+      fail_text: "Commit-Message passt nicht zu Conventional Commits. Siehe commitlint.config.js."

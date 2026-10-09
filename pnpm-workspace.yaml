@@ -1,0 +1,7 @@
+packages:
+  - "packages/*"
+
+# Nur diese Pakete duerfen Install-Skripte ausfuehren.
+onlyBuiltDependencies:
+  - esbuild
+  - lefthook

@@ -1,0 +1,11 @@
+.idea/
+node_modules/
+dist/
+dist-web/
+coverage/
+*.tsbuildinfo
+.vitest-report.json
+.jest-report.json
+.oxlintcache
+.bench/
+.pnpm-store/

@@ -1,0 +1,35 @@
+{
+  "name": "urlaubsverwaltung",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "pnpm run typecheck && pnpm run format:check && pnpm -r --parallel run check",
+    "check:affected": "pnpm run typecheck && pnpm -r --filter \"...[$(bash scripts/affected-base.sh)]\" --parallel run check",
+    "typecheck": "tsc -b",
+    "build": "tsc -b && pnpm --filter @urlaub/web run build",
+    "test": "vitest run --reporter=dot",
+    "test:json": "vitest run --reporter=json --outputFile=.vitest-report.json",
+    "lint": "oxlint",
+    "format": "oxfmt . '!slides/**'",
+    "format:check": "oxfmt --check . '!slides/**'",
+    "dev": "pnpm --filter @urlaub/api run dev",
+    "bench": "bash scripts/bench.sh",
+    "clean": "tsc -b --clean",
+    "commitlint": "commitlint --edit",
+    "prepare": "git config --unset core.hooksPath 2>/dev/null || true"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.1.0",
+    "lefthook": "^2.1.12",
+    "oxfmt": "^0.67.0",
+    "oxlint": "^1.82.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.11"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.15.0"
+}
