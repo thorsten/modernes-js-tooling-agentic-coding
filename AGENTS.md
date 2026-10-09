@@ -17,6 +17,7 @@ packages/
   shared-types/   contract between API and web, pure types plus route constants
   api/            Hono server, REST endpoints on top of core-rules
   web/            Vite + React, request form and overview
+  mcp-server/     MCP server over stdio, serves HR master data to the agent
 ```
 
 Dependency direction: `holidays` → `core-rules` → `api` → `web`. A change in
@@ -122,6 +123,32 @@ without `@urlaub/` plus `scripts`, `slides`, `trainer`, `tooling` and `repo`. Ex
 Packages import each other by package name, never through relative paths reaching into
 another package.
 
+## External data through MCP
+
+The master data does sit as JSON under `data/`, but you should not read it yourself.
+`data/employees.json` and `data/absences.json` are raw dumps without context; reading
+them pulls twelve records into your context and makes you redo the domain rules by
+hand. Use the `urlaub-hr` server instead, registered in `.mcp.json`.
+
+| Tool                             | What for                                                                    |
+| -------------------------------- | --------------------------------------------------------------------------- |
+| `list_employees(team?)`          | Find ids and teams. Without an argument, all twelve people.                 |
+| `get_employee(id)`               | Master data of one person: state, workdays, entitlement, carry-over.        |
+| `list_absences(team, from, to)`  | Approved absences of a team in a period. Pending requests are not included. |
+| `get_holidays(bundesland, year)` | Public holidays, so that leave days are counted correctly.                  |
+| `request_leave(...)`             | **Writes.** Creates a request and stores it in `data/absences.json`.        |
+
+`request_leave` is the only tool that changes data. It checks every domain rule first
+and writes nothing when one of them fails. Do not call it speculatively: when the task
+is ambiguous, ask instead of creating a request and trying to correct it afterwards,
+because this server cannot cancel.
+
+The tools do not compute for you. They deliver master data and public holidays; how
+many leave days a period costs follows from rule 4 and the logic in `core-rules`.
+
+If the server does not answer, that is not a reason to fall back to reading the JSON
+files. Report it and work with what you know about the domain rules.
+
 ## What not to read
 
 These paths cost context and contain nothing that changes a decision:
@@ -133,6 +160,8 @@ These paths cost context and contain nothing that changes a decision:
   of more than 1500 lines. If you want to know which holiday applies where, read
   `packages/holidays/src/holidays.ts`.
 - `.vitest-report.json` — output of `pnpm test:json`
+- `data/employees.json` and `data/absences.json` — raw data. Use the MCP tools above
+  instead.
 
 When a test run is red, read the failure from `pnpm check:affected`. On failure the
 dot reporter shows file, line and diff. That is usually enough to find the cause

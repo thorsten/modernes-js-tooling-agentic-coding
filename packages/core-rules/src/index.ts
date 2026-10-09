@@ -25,7 +25,7 @@ export {
 } from "./types.js";
 
 export { countWorkdays, isWorkday, listWorkdays, weekdayOf } from "./workdays.js";
-export { countLeaveDays, listLeaveDays } from "./leave-days.js";
+export { countLeaveDays, HALF_DAY_VALUE, isHalfDaySpan, listLeaveDays } from "./leave-days.js";
 export {
   annualEntitlement,
   carryOverDeadline,

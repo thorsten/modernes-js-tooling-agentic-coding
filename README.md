@@ -45,6 +45,7 @@ packages/
   shared-types/   contract between API and web
   api/            Hono server
   web/            Vite + React
+  mcp-server/     MCP server over stdio for HR master data
 data/             employees and absences as JSON
 docs/tickets/     tasks for the hands-on blocks
 scripts/bench.sh  runtime measurement for the full and the affected check
@@ -74,6 +75,20 @@ everything with it, a change at the top almost nothing.
 | `solution` | `fast` plus the MCP server and a solved ticket 001                   |
 
 `main` points at `slow`.
+
+## MCP server
+
+This branch carries an MCP server under `packages/mcp-server` that exposes master
+data, absences and public holidays as tools. `.mcp.json` in the root registers it for
+Claude Code; after `pnpm install` it is available the next time the agent starts. To
+run it by hand:
+
+```bash
+pnpm --filter @urlaub/mcp-server start
+```
+
+The server speaks the protocol over stdin and stdout, so there is nothing to see as
+long as no client is connected.
 
 ## Language
 

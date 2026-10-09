@@ -1,6 +1,6 @@
 import { addIsoDays, isIsoDate, yearOf, type IsoDate } from "@urlaub/holidays";
 import { computeBalance } from "./entitlement.js";
-import { countLeaveDays } from "./leave-days.js";
+import { countLeaveDays, isHalfDaySpan } from "./leave-days.js";
 import { findTeamCoverageConflicts } from "./team.js";
 import { LeaveRuleError, type Employee, type LeaveRequest, type LeaveSpan } from "./types.js";
 
@@ -13,6 +13,7 @@ export type ValidationCode =
   | "UNKNOWN_EMPLOYEE"
   | "REQUEST_TOO_FAR_IN_PAST"
   | "SPANS_YEAR_BOUNDARY"
+  | "HALF_DAY_NOT_SINGLE_DAY"
   | "NO_WORKDAYS"
   | "INSUFFICIENT_ENTITLEMENT"
   | "TEAM_COVERAGE";
@@ -91,6 +92,14 @@ export function validateLeaveRequest(
       code: "REQUEST_TOO_FAR_IN_PAST",
       message: `Ein Antrag darf hoechstens ${MAX_BACKDATING_DAYS} Tage rueckwirkend beginnen.`,
       details: { from: span.from, earliest },
+    });
+  }
+
+  if (span.halfDay !== undefined && !isHalfDaySpan(span)) {
+    errors.push({
+      code: "HALF_DAY_NOT_SINGLE_DAY",
+      message: "Ein halber Tag ist nur bei einem eintaegigen Antrag moeglich.",
+      details: { from: span.from, to: span.to, halfDay: span.halfDay },
     });
   }
 

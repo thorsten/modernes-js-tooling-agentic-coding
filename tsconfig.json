@@ -1,10 +1,23 @@
 {
   "files": [],
   "references": [
-    { "path": "packages/holidays" },
-    { "path": "packages/core-rules" },
-    { "path": "packages/shared-types" },
-    { "path": "packages/api" },
-    { "path": "packages/web" }
+    {
+      "path": "packages/holidays"
+    },
+    {
+      "path": "packages/core-rules"
+    },
+    {
+      "path": "packages/shared-types"
+    },
+    {
+      "path": "packages/api"
+    },
+    {
+      "path": "packages/web"
+    },
+    {
+      "path": "packages/mcp-server"
+    }
   ]
 }

@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "urlaub-hr": {
+      "type": "stdio",
+      "command": "pnpm",
+      "args": ["--silent", "-C", "packages/mcp-server", "run", "start"]
+    }
+  }
+}
