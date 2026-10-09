@@ -20,11 +20,10 @@ within fifteen minutes.
 ```bash
 corepack enable
 pnpm install
-pnpm check
+pnpm lint && pnpm typecheck && pnpm test
 ```
 
-Once `pnpm check` is green you are ready. The first run takes a few minutes for the
-download, later runs take seconds.
+Once all three commands are green you are ready.
 
 ## Running the application
 
@@ -47,7 +46,7 @@ packages/
   web/            Vite + React
 data/             employees and absences as JSON
 docs/tickets/     tasks for the hands-on blocks
-scripts/bench.sh  runtime measurement for the full and the affected check
+scripts/bench.sh  runtime measurement
 ```
 
 `holidays` → `core-rules` → `api` → `web`: a change at the bottom pulls almost
@@ -55,15 +54,15 @@ everything with it, a change at the top almost nothing.
 
 ## Commands
 
-| Command                                   | Effect                                                       |
-| ----------------------------------------- | ------------------------------------------------------------ |
-| `pnpm check`                              | types, formatting, lint and tests across all packages        |
-| `pnpm check:affected`                     | the same, but only for changed packages and their dependents |
-| `AFFECTED_BASE=<ref> pnpm check:affected` | forces a specific comparison base                            |
-| `pnpm test:json`                          | test run with a machine-readable report                      |
-| `pnpm format`                             | apply formatting                                             |
-| `pnpm bench`                              | measure runtimes                                             |
-| `pnpm commitlint`                         | check a commit message against conventional commits          |
+| Command           | Effect                                              |
+| ----------------- | --------------------------------------------------- |
+| `pnpm lint`       | ESLint across every package, one after another      |
+| `pnpm typecheck`  | `tsc --noEmit` across the whole repository          |
+| `pnpm test`       | Jest across every package, one after another        |
+| `pnpm build`      | type check followed by the web build                |
+| `pnpm format`     | apply Prettier, `pnpm format:check` only verifies   |
+| `pnpm bench`      | measure runtimes                                    |
+| `pnpm commitlint` | check a commit message against conventional commits |
 
 ## Branches
 

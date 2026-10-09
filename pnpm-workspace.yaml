@@ -3,5 +3,6 @@ packages:
 
 # Nur diese Pakete duerfen Install-Skripte ausfuehren.
 onlyBuiltDependencies:
+  - "@parcel/watcher"
   - esbuild
-  - lefthook
+  - unrs-resolver

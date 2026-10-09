@@ -8,15 +8,11 @@
   "exports": {
     ".": "./src/index.ts"
   },
-  "scripts": {
-    "check": "oxlint . && vitest run --reporter=dot"
-  },
   "dependencies": {
     "@urlaub/core-rules": "workspace:*"
   },
-  "devDependencies": {
-    "oxlint": "^1.82.0",
-    "typescript": "^5.9.3",
-    "vitest": "^4.1.11"
+  "scripts": {
+    "lint": "eslint .",
+    "test": "cd ../.. && jest --selectProjects shared-types --runInBand"
   }
 }

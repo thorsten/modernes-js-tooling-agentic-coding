@@ -9,7 +9,8 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "check": "oxlint . && vitest run --reporter=dot",
+    "lint": "eslint .",
+    "test": "cd ../.. && jest --selectProjects api --runInBand",
     "dev": "tsx watch src/server.ts",
     "start": "tsx src/server.ts"
   },
@@ -20,10 +21,6 @@
     "hono": "^4.13.7"
   },
   "devDependencies": {
-    "@types/node": "^22.20.2",
-    "oxlint": "^1.82.0",
-    "tsx": "^4.20.6",
-    "typescript": "^5.9.3",
-    "vitest": "^4.1.11"
+    "tsx": "^4.20.6"
   }
 }

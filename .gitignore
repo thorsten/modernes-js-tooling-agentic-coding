@@ -9,3 +9,4 @@ coverage/
 .oxlintcache
 .bench/
 .pnpm-store/
+.husky/_/
